@@ -1,0 +1,26 @@
+/* In HTML, use <style> in the head section to affect all the called part in the body
+it reduces the number of changes to make in side the body part*/
+<style> 
+    body {
+        background-color: "#EAF6F6";
+    }
+    hr { /*We use border-... to make dotted line. Why? because all displayed
+        content can be considered as box of pixel,... 
+        look through mdn online resources for border-line property*/ 
+        border-style: none;
+        border-top-style: dotted;
+        border-color: grey;
+        border-width: 5px;
+        width: 5%;
+    }
+    img{
+        height: 150px;
+        border-radius: 100%;
+    }
+    h1 {
+       color: #66bfbf;
+    }
+    h3 {
+        color: #66bfbf;
+    }
+</style>

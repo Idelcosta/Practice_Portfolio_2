@@ -1,0 +1,37 @@
+/****************TAg SELECTORS**************/
+h1 {
+    color: red;
+    font-size: 200px;
+}
+
+/* the pseudo-class "hover" changes color as the pointer goes on the image*/
+img:hover {
+    background-color: gold;
+}
+
+/***************CLASS SELECTORS**************/
+
+/*"class" helps for more flexibility, individual selection color image tags or html elements*/
+.bacon {
+    background-color: green;
+} 
+
+.broccoli {
+    background-color: red;
+}
+
+.circular {
+    border-radius: 100%;
+}
+/***************ID SELELCTORS**************/
+
+/* for "id"  */
+#heading {
+    color: blue;
+}
+
+/* the "big" in id impossible!! will not be taken into account. 
+It will nullify the whole "id"*/
+#big {
+    border-radius: 200%;
+}
