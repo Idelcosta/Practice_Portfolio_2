@@ -1,3 +1,14 @@
 body {
-    background-color: blue;
+    margin: 0; /* all the four sides of the box containg a text will have margin 0*/
+}
+
+h1 {
+    margin-top: 0;
+}
+div {
+    background-color: #e4f9f5;
+}
+
+.pro {
+    text-decoration: underline;
 }
