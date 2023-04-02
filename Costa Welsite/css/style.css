@@ -1,14 +1,102 @@
+/* Practice of inline and display
+P{
+  background-color: red;
+  width: 100px
+  display: inline-block;
+}
+
+span {
+  background-color: blue;
+}
+
+.second-p {
+  visibility: hidden;
+ }
+*/
+
+
 body {
     margin: 0; /* all the four sides of the box containg a text will have margin 0*/
+    text-align: center; 
+    font-family: 'Merriweather', serif;
 }
 
 h1 {
-    margin-top: 0;
+    color: #66bfbf;
+    font-size: 5.62rem; /* 100% in font size is equal to 16px; 16px = 100% = 1em!! 
+    * % and em are dynamic font size adpt when changing settings of font size. Whereas pixels won't
+      All of them will change though when zooming (not changing settings) 
+    !!!!! USING "rem" WILL PREVENT UPSTREAM SIZE CHANGES, FOR EXAMPLE PREVENT SIZE SET IN THE BODY TO AFFECT
+    THE ONE WE WANT TO DISPLAY */
+    /*line-height: 2;*/  /* increases the space between the text and the folowing text*/
+    margin-top: 50px auto 0 auto;
+    font-family: 'Sacramento', cursive;
+  }
+
+h2 {
+  color: #66bfbf;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: normal;
 }
-div {
+
+h3 {
+  color: #11999e;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.top-container {
     background-color: #e4f9f5;
+    position: relative;
+    padding-top: 100px; /*pushes things down a bit*/
+}
+
+.middle-container {
+
+} 
+
+.bottom-container {
+
+}
+
+.skill-row {
+  width: 50%;
+  margin: 100px auto 100px auto;
+  text-align: left;  /*This overrides the the center text align in the body*/
+  line-height: 2;
 }
 
 .pro {
     text-decoration: underline;
 }
+
+.top-cloud {
+  position: absolute;
+  right: 300px;
+  height: 50px;
+}
+
+.bottom-cloud {
+  position: absolute;
+  left: 300px;
+  bottom: 300px;
+}
+
+.code-img {
+  width: 25%;  /*25% of the 50% width of the .skill-row, which is in turn 50% of the entire page*/
+  float: left; /*text displayed on the left of the image, wrapping it around
+  Use it with caution!!! Only when necessary, for wrapping text around an elt not positioning 
+  *Try instead positioning, margin, padding,*/
+  margin-right: 30px;
+}
+
+.chilli-imig {
+  width: 25%;  /*25% of the 50% width of the .skill-row, which is in turn 50% of the entire page*/
+  float: right; /*text displayed on the left of the image, wrapping it around*/
+  margin-left: 30px;
+}
+
+.code-skill-description{
+  clear: left; /*the anti float; clear the left part of the text. No wrapping*/
+}
+
