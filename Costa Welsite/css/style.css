@@ -16,6 +16,7 @@ span {
 
 
 body {
+    color: #40514e;
     margin: 0; /* all the four sides of the box containg a text will have margin 0*/
     text-align: center; 
     font-family: 'Merriweather', serif;
@@ -38,11 +39,34 @@ h2 {
   font-family: 'Montserrat', sans-serif;
   font-size: 2.5rem;
   font-weight: normal;
+  padding-bottom: 10px;
 }
 
 h3 {
   color: #11999e;
   font-family: 'Montserrat', sans-serif;
+}
+
+p {
+  line-height: 2 #eaf6f6;
+} 
+
+hr{
+  border: dotted #eaf6f6 6px;
+  border-bottom: none;
+  width: 4%; /*better to use % for it to change if zoomed...*/
+  margin: 100px auto  ;
+}
+
+a {
+  color: #11999e;
+  font-family: 'Merriweather', serif;
+  margin: 10px 20px;
+  text-decoration: none;
+}
+
+a:hover { /* use of pseudo-classes*/
+color: #eaf6f6;
 }
 
 .top-container {
@@ -52,33 +76,49 @@ h3 {
 }
 
 .middle-container {
-
+margin: 100px 0;
 } 
 
 .bottom-container {
-
+background-color: #66bfbf;
+padding: 50px 0 20px;
 }
 
 .skill-row {
   width: 50%;
   margin: 100px auto 100px auto;
   text-align: left;  /*This overrides the the center text align in the body*/
-  line-height: 2;
 }
 
 .pro {
     text-decoration: underline;
 }
 
+.intro {
+  width: 30%;
+  margin: auto  auto;
+}
+
+.contact-message {
+  width: 40px;
+  margin: 40px auto 60px;
+}
+
+.copyright {
+  color: #eaf6f6;
+  margin: 0.75rem;
+  padding: 20px 0;
+}
+
 .top-cloud {
   position: absolute;
   right: 300px;
-  height: 50px;
+  height: 40px;
 }
 
 .bottom-cloud {
   position: absolute;
-  left: 300px;
+  left: 250px;
   bottom: 300px;
 }
 
@@ -90,7 +130,7 @@ h3 {
   margin-right: 30px;
 }
 
-.chilli-imig {
+.chilli-img {
   width: 25%;  /*25% of the 50% width of the .skill-row, which is in turn 50% of the entire page*/
   float: right; /*text displayed on the left of the image, wrapping it around*/
   margin-left: 30px;
