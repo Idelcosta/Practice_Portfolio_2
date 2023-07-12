@@ -12,7 +12,10 @@ void display_prompt(char **av, char **env)
 
     while (1)
     {
-        printf ("cisfun$ ");
+	if (isatty(STDIN_FILENO))
+	{
+		printf ("cisfun$ ");
+	}
 
         number_character = getline(&string, &n, stdin);
         if (number_character == -1)
