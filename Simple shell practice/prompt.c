@@ -12,7 +12,7 @@ void display_prompt(char **av, char **env)
 
     while (1)
     {
-        print("cisfun$ ");
+        printf ("cisfun$ ");
 
         number_character = getline(&string, &n, stdin);
         if (number_character == -1)
@@ -21,10 +21,10 @@ void display_prompt(char **av, char **env)
             exit(EXIT_FAILURE);
         }
 
-        i = 0
+        i = 0;
         while (string[i])
         {
-            if (string[i] == "\n")
+            if (string[i] == '\n')
             {
                 string[i] = 0 ;
             }
@@ -42,7 +42,7 @@ void display_prompt(char **av, char **env)
         {
             if (execve(argv[0], argv, env) == -1)
             {
-                print ("%s: No such file or directory\n", av[0]);
+                printf ("%s: No such file or directory\n", av[0]);
             }
         }
         else
