@@ -1,13 +1,15 @@
 #include "shell_library.h"
 #include <sys/wait.h>
 
+#define MAX_COMMAND 10
+
 void display_prompt(char **av, char **env)
 {
     char *string = NULL;
-    int i, status = 0;
+    int i, j, status;
     size_t n = 0;
     ssize_t number_character;
-    char *argv[] = {NULL, NULL};
+    char *argv[] = {MAX_COMMAND};
     pid_t child_pid;
 
     while (1)
@@ -31,10 +33,17 @@ void display_prompt(char **av, char **env)
             {
                 string[i] = 0 ;
             }
-            i++;
+            i++;    
         }
 
-        argv[0] = string;
+        j = 0;
+        argv[j] = strtok{string, " "};
+        while (argv[j])
+        {
+            j++;
+            argv[j] = strtok(NULL, " ");
+        }
+
         child_pid = fork();
         if (child_pid == -1)
         {
