@@ -2,7 +2,6 @@
 #include <sys/wait.h>
 
 #define MAX_COMMAND 10
-#define MAX_COMMAND_LENGTH 100
 
 void display_prompt(char **av, char **env)
 {
@@ -45,7 +44,7 @@ void display_prompt(char **av, char **env)
         int command_found = 0;
         while (argv[j] != NULL)
         {
-            char executable[MAX_COMMAND_LENGTH];
+            char executable[MAX_COMMAND];
             snprintf(executable, sizeof(executable), "%s/%s", dir, command);
              // Attempt to execute the command
             if (access(executable, X_OK) == 0) {
