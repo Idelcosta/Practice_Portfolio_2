@@ -14,8 +14,7 @@ void display_prompt(char **av, char **env)
 
     char *path_copy;
     char *directory;
-    char executable;
-
+    char executable[MAX_COMMAND_LENGTH];
     char *path = getenv("PATH");
 
 
@@ -31,6 +30,7 @@ void display_prompt(char **av, char **env)
         {
             free(command); 
             exit(EXIT_FAILURE);
+            fflush(stdout);
         }
 
         i = 0;
@@ -44,18 +44,18 @@ void display_prompt(char **av, char **env)
         }
 
 
-        *path_copy = *strdup(path);
-        *directory = *strtok(path_copy, ";");
-        while (tokens != NULL)
+        path_copy = *strdup(path);
+        directory = *strtok(path_copy, ";");
+        while (directory != NULL)
         {
             strcpy(executable, directory);
-            strncat(executable, "/");
-            strncat(executable, command);
+            strcat(executable, "/");
+            strcat(executable, command);
 
             directory = strtok(NULL, ":");
         }
 
-        args[] = {command, NULL};
+        args[0] = command;
 
 
         child_pid = fork();
@@ -66,7 +66,7 @@ void display_prompt(char **av, char **env)
         }
         if (child_pid == 0)
         {
-            execve(*executable, args, env);
+            execve(executable, args, env);
 
             perror("execve");
             printf ("%s: No such file or directory\n", av[0]);
