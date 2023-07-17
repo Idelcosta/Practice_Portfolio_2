@@ -66,7 +66,7 @@ void display_prompt(char **av, char **env)
         }
         if (child_pid == 0)
         {
-            execve(executable, args[command], env);
+            execve(executable, args[0], env);
 
             perror("execve");
             printf ("%s: No such file or directory\n", av[0]);
