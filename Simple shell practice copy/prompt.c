@@ -64,14 +64,15 @@ void display_prompt(char **av, char **env)
             free(command);
             exit(EXIT_FAILURE);
         }
+
         if (child_pid == 0)
         {
-            execve(executable, args, env);
-
-            perror("execve");
-            printf ("%s: No such file or directory\n", av[0]);
-            exit(1);
+            if (execve(executable, args, env) == -1)
+            {
+                printf ("%s: No such file or directory\n", av[0]);
+            }
         }
+
         else
             wait(&status);
     }
