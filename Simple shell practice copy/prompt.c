@@ -9,7 +9,7 @@ void display_prompt(char **av, char **env)
     int i, status;
     size_t n = 0;
     ssize_t number_character;
-    char *args;
+    char *args[MAX_COMMAND];
     pid_t child_pid;
 
     char *path_copy;
@@ -55,7 +55,7 @@ void display_prompt(char **av, char **env)
             directory = strtok(NULL, ":");
         }
 
-        args[0] = *command;
+        args[0] = command;
 
 
         child_pid = fork();
@@ -66,7 +66,7 @@ void display_prompt(char **av, char **env)
         }
         if (child_pid == 0)
         {
-            execve(executable, &args, env);
+            execve(executable, args, env);
 
             perror("execve");
             printf ("%s: No such file or directory\n", av[0]);
