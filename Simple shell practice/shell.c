@@ -1,10 +1,18 @@
 #include "shell_library.h"
 
-int main(int ac, char **av, char **env)
+void execution_command(char **argv)
 {
-    if (ac == 1) 
-    {
-        display_prompt(av, env);
+    char *command = NULL, *actual_command = NULL;
+
+    if (argv){
+
+        command = argv[0];
+
+        actual_command = get_location(command);
+
+        if (execve(actual_command, argv, NULL) == -1){
+            perror("hsh: No such file or directory\n");
+        }
     }
-    return(0);
+
 }

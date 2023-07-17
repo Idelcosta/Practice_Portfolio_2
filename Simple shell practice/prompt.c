@@ -52,10 +52,7 @@ void display_prompt(char **av, char **env)
         }
         if (child_pid == 0)
         {
-            if (execve(argv[0], argv, env) == -1)
-            {
-                printf ("%s: No such file or directory\n", av[0]);
-            }
+            execution_command(argv);
         }
         else
             wait(&status);
