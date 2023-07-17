@@ -9,7 +9,8 @@ void display_prompt(char **av, char **env)
     int i, status;
     size_t n = 0;
     ssize_t number_character;
-    char *tokens, *args;
+    char *tokens;
+    char args[MAX_COMMAND_LENGTH];
     pid_t child_pid;
 
     char *path_copy;
@@ -44,8 +45,8 @@ void display_prompt(char **av, char **env)
         }
 
 
-        path_copy = *strdup(path);
-        directory = *strtok(path_copy, ";");
+        path_copy = strdup(path);
+        directory = strtok(path_copy, ";");
         while (directory != NULL)
         {
             strcpy(executable, directory);
@@ -55,7 +56,7 @@ void display_prompt(char **av, char **env)
             directory = strtok(NULL, ":");
         }
 
-        args[0] = command;
+        args[0] = *command;
 
 
         child_pid = fork();
