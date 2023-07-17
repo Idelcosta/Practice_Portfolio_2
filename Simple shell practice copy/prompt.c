@@ -12,10 +12,12 @@ void display_prompt(char **av, char **env)
     char *tokens;
     pid_t child_pid;
 
-    char *path;
     char *path_copy;
     char *dir;
     char executable;
+
+    char *path = getenv("PATH");
+
 
     while (1)
     {
@@ -42,9 +44,8 @@ void display_prompt(char **av, char **env)
         }
 
 
-        char *path = getenv("PATH");
-        char *path_copy = strdup(path);
-        char *directory = *strtok(path_copy, " ");
+        *path_copy = strdup(path);
+        *directory = *strtok(path_copy, ";");
         while (tokens != NULL)
         {
             strcpy(executable, directory);
