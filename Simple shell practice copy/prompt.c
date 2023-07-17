@@ -5,11 +5,10 @@
 
 void display_prompt(char **av, char **env)
 {
-    char *string = NULL;
+    char *command = NULL;
     int i, j, status;
     size_t n = 0;
     ssize_t number_character;
-    char *argv[] = {MAX_COMMAND};
     pid_t child_pid;
 
     while (1)
@@ -19,7 +18,7 @@ void display_prompt(char **av, char **env)
 		printf ("cisfun$ ");
 	}
 
-        number_character = getline(&string, &n, stdin);
+        number_character = getline(&command, &n, stdin);
         if (number_character == -1)
         {
             free(string); 
@@ -40,33 +39,19 @@ void display_prompt(char **av, char **env)
 
         char *path = getenv("PATH");
         char *path_copy = strdup(path);
-        argv[j] = strtok(path_copy, " ");
-        int command_found = 0;
-        while (argv[j] != NULL)
+        char *directory = strtok(*path_coppy, " ");
+        while (tokens != NULL)
         {
-            char executable[MAX_COMMAND];
-            snprintf(executable, sizeof(executable), "%s/%s", dir, command);
-             // Attempt to execute the command
-            if (access(executable, X_OK) == 0) {
-                // Command found and executable
-                command_found = 1;
-                break;
-            }   
-            j++;
-            argv[j] = strtok(NULL, " ");
+            char executable;
+            strcpy(executable, directory);
+            strcat(executable, "/");
+            strcat(executable, command);
+
+            directory = strtok(NULL, ":");
         }
 
-        if (command_found) {
-            // Execute the command
-            execlp(command, command, NULL);
+        char *args[] = {command, NULL};
 
-            // If execlp returns, an error occurred
-            perror("execlp");
-            exit(1);
-        } else {
-            // Command not found
-            printf("Command not found: %s\n", command);
-        }
 
         child_pid = fork();
         if (child_pid == -1)
@@ -76,10 +61,11 @@ void display_prompt(char **av, char **env)
         }
         if (child_pid == 0)
         {
-            if (execve(argv[0], argv, env) == -1)
-            {
-                printf ("%s: No such file or directory\n", av[0]);
-            }
+            execve(executable, args, NULL);
+
+            perror("execve");
+            printf ("%s: No such file or directory\n", av[0]);
+            exit(1);
         }
         else
             wait(&status);
