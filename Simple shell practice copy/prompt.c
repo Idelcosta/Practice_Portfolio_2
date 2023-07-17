@@ -6,9 +6,10 @@
 void display_prompt(char **av, char **env)
 {
     char *command = NULL;
-    int i, j, status;
+    int i, status;
     size_t n = 0;
     ssize_t number_character;
+    char *tokens;
     pid_t child_pid;
 
     while (1)
@@ -21,16 +22,16 @@ void display_prompt(char **av, char **env)
         number_character = getline(&command, &n, stdin);
         if (number_character == -1)
         {
-            free(string); 
+            free(command); 
             exit(EXIT_FAILURE);
         }
 
         i = 0;
-        while (string[i])
+        while (command[i])
         {
-            if (string[i] == '\n')
+            if (command[i] == '\n')
             {
-                string[i] = 0 ;
+                command[i] = 0 ;
             }
             i++;    
         }
@@ -39,7 +40,7 @@ void display_prompt(char **av, char **env)
 
         char *path = getenv("PATH");
         char *path_copy = strdup(path);
-        char *directory = strtok(*path_coppy, " ");
+        char *directory = strtok(*path_copy, " ");
         while (tokens != NULL)
         {
             char executable;
@@ -56,7 +57,7 @@ void display_prompt(char **av, char **env)
         child_pid = fork();
         if (child_pid == -1)
         {
-            free(string);
+            free(command);
             exit(EXIT_FAILURE);
         }
         if (child_pid == 0)
