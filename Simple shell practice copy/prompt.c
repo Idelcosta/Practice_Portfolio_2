@@ -1,7 +1,7 @@
 #include "shell_library.h"
-#include <sys/wait.h>
 
 #define MAX_COMMAND 10
+#define MAX_COMMAND_LENGTH 100
 
 void display_prompt(char **av, char **env)
 {
