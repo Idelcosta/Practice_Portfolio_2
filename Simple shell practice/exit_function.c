@@ -1,6 +1,6 @@
 #include "shell_library.h"
 
-void exit_function(char **exit_args, size_t args_count)
+void exit_function(char **exit_args)
 {
     int status = EXIT_SUCCESS;
 
