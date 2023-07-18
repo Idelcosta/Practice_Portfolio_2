@@ -11,8 +11,9 @@
 
 
 
-void display_prompt(char **av, char **env);
+void display_prompt(int ac, char **argv);
 char *get_location(char *command);
+void execution_command(char **argv);
 
 
 #endif 
