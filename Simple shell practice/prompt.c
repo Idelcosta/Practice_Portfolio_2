@@ -9,7 +9,7 @@ void display_prompt(char **av, char **env)
     int i, j, status;
     size_t n = 0;
     ssize_t number_character;
-    char *argv[] = {MAX_COMMAND};
+    char *args[MAX_COMMAND];
     pid_t child_pid;
 
     while (1)
@@ -37,7 +37,7 @@ void display_prompt(char **av, char **env)
         }
 
         j = 0;
-        argv[j] = strtok{string, " "};
+        argv[j] = strtok(string, " ");
         while (argv[j])
         {
             j++;
