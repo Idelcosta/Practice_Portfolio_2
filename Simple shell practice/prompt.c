@@ -5,13 +5,12 @@
 int main(int ac, char **argv)
 {
     char *string = NULL, *string_copy = NULL;
-    int i, j, status;
+    int i, status;
     size_t n = 0;
     ssize_t number_character;
-    pid_t child_pid;`
+    pid_t child_pid;
     char *arguments;
     int arguments_count = 0;
-    int i;
 
     (void)ac;
 
@@ -61,23 +60,23 @@ int main(int ac, char **argv)
 
 
 
-        // i = 0;
-        // while (string[i])
-        // {
-        //     if (string[i] == '\n')
-        //     {
-        //         string[i] = 0 ;
-        //     }
-        //     i++;    
-        // }
+        /**i = 0;
+        while (string[i])
+        {
+            if (string[i] == '\n')
+            {
+                string[i] = 0 ;
+            }
+            i++;    
+        }
 
-        // j = 0;
-        // argv[j] = strtok(string, " \n");
-        // while (argv[j])
-        // {
-        //     j++;
-        //     argv[j] = strtok(NULL, " \n");
-        // }
+        j = 0;
+        argv[j] = strtok(string, " \n");
+        while (argv[j])
+        {
+            j++;
+            argv[j] = strtok(NULL, " \n");
+        }*/
 
 
         child_pid = fork();
