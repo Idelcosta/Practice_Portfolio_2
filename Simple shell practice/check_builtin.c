@@ -2,6 +2,8 @@
 
 bool check_builtin(char **args, size_t args_count)
 {
+    (void)args_count;
+    
     if (strncmp(args[0], "exit", 4) == 0)
         exit_function(args);
 
