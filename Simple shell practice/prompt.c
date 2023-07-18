@@ -58,9 +58,12 @@ int main(int ac, char **argv)
         }
         argv[i] = NULL;
 
+        if (check_builtin(argv, number_character))
+            continue;
 
 
         /**i = 0;
+
         while (string[i])
         {
             if (string[i] == '\n')
