@@ -1,7 +1,6 @@
 #include "shell_library.h"
 #include <sys/wait.h>
 
-#define MAX_COMMAND 10
 
 void display_prompt(int ac, char **argv)
 {
