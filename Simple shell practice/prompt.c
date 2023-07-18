@@ -8,7 +8,10 @@ int main(int ac, char **argv)
     int i, j, status;
     size_t n = 0;
     ssize_t number_character;
-    pid_t child_pid;
+    pid_t child_pid;`
+    char *arguments;
+    int arguments_count = 0;
+    int i;
 
     (void)ac;
 
@@ -35,23 +38,47 @@ int main(int ac, char **argv)
 
         strcpy(string_copy, string);
 
-        i = 0;
-        while (string[i])
-        {
-            if (string[i] == '\n')
-            {
-                string[i] = 0 ;
-            }
-            i++;    
-        }
+        arguments = strtok(string, " \n");
 
-        j = 0;
-        argv[j] = strtok(string, " \n");
-        while (argv[j])
+        while (arguments != NULL)
         {
-            j++;
-            argv[j] = strtok(NULL, " \n");
+            arguments_count++;
+            arguments = strtok(NULL, " \n");
         }
+        arguments_count++;
+
+        argv = malloc(sizeof(char *) * arguments_count);
+
+        arguments = strtok(string_copy, " \n");
+
+        for (i = 0; arguments != NULL; i++){
+            argv[i] = malloc(sizeof(char) * strlen(arguments));
+            strcpy(argv[i], arguments);
+
+            arguments = strtok(NULL, " \n");
+        }
+        argv[i] = NULL;
+
+
+
+        // i = 0;
+        // while (string[i])
+        // {
+        //     if (string[i] == '\n')
+        //     {
+        //         string[i] = 0 ;
+        //     }
+        //     i++;    
+        // }
+
+        // j = 0;
+        // argv[j] = strtok(string, " \n");
+        // while (argv[j])
+        // {
+        //     j++;
+        //     argv[j] = strtok(NULL, " \n");
+        // }
+
 
         child_pid = fork();
         if (child_pid == -1)
