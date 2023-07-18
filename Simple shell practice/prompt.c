@@ -4,7 +4,7 @@
 
 int main(int ac, char **argv)
 {
-    char *string = NULL;
+    char *string = NULL, *string_copy = NULL;
     int i, j, status;
     size_t n = 0;
     ssize_t number_character;
@@ -25,6 +25,15 @@ int main(int ac, char **argv)
             free(string); 
             exit(EXIT_FAILURE);
         }
+
+        string_copy = malloc(sizeof(char) * number_character);
+        if (string_copy == NULL)
+        {
+            perror("error memory allocation");
+            return (-1);
+        }
+
+        strcpy(string_copy, string);
 
         i = 0;
         while (string[i])
@@ -57,6 +66,9 @@ int main(int ac, char **argv)
         else
             wait(&status);
     }
+
+    free(string);
+    free(string_copy);
 
     return(0);
 }
