@@ -46,11 +46,11 @@ int main(int ac, char **argv)
         }
 
         j = 0;
-        argv[j] = strtok(string, "\n");
+        argv[j] = strtok(string, " \n");
         while (argv[j])
         {
             j++;
-            argv[j] = strtok(NULL, "\n");
+            argv[j] = strtok(NULL, " \n");
         }
 
         child_pid = fork();
