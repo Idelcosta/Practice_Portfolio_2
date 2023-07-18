@@ -9,6 +9,6 @@ void exit_function(char **exit_args, size_t args_count)
         status = atoi(exit_args[1]);
     }
 
-    free(exit_args, args_count);
+    free(exit_args);
     exit(status);
  }
