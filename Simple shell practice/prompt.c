@@ -3,14 +3,15 @@
 
 #define MAX_COMMAND 10
 
-void display_prompt(char **av, char **env)
+void display_prompt(int ac, char **argv)
 {
     char *string = NULL;
     int i, j, status;
     size_t n = 0;
     ssize_t number_character;
-    char *args[MAX_COMMAND];
     pid_t child_pid;
+
+    (void)ac;
 
     while (1)
     {
