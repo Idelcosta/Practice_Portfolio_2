@@ -2,7 +2,7 @@
 #include <sys/wait.h>
 
 
-void display_prompt(int ac, char **argv)
+void main(int ac, char **argv)
 {
     char *string = NULL;
     int i, j, status;
