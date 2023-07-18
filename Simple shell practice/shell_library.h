@@ -11,7 +11,7 @@
 
 
 
-void main(int ac, char **argv);
+int main(int ac, char **argv);
 char *get_location(char *command);
 void execution_command(char **argv);
 

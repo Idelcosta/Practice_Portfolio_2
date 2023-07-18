@@ -2,7 +2,7 @@
 #include <sys/wait.h>
 
 
-void main(int ac, char **argv)
+int main(int ac, char **argv)
 {
     char *string = NULL;
     int i, j, status;
@@ -57,6 +57,8 @@ void main(int ac, char **argv)
         else
             wait(&status);
     }
+
+    return(0);
 }
 
  
