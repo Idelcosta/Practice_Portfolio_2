@@ -76,7 +76,7 @@ char **_strtok(char *line, char *delim)
 
 		letters = token_len(line + index, delim);
 
-		ptr[t] = (char *)malloc(sizeof(char) * (letters + 1));
+		ptr[t] = malloc(sizeof(char) * (letters + 1));
 		if (!ptr[t])
 		{
 			for (index -= 1; index >= 0; index--)

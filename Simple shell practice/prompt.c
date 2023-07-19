@@ -37,24 +37,24 @@ int main(int ac, char **argv)
 
         strcpy(string_copy, string);
 
-        arguments = _strtok(string, " \n");
+        arguments = (char *)_strtok(string, " \n");
 
         while (arguments != NULL)
         {
             arguments_count++;
-            arguments = _strtok(NULL, " \n");
+            arguments = (NULL, " \n");
         }
         arguments_count++;
 
         argv = malloc(sizeof(char *) * arguments_count);
 
-        arguments = _strtok(string_copy, " \n");
+        arguments = (string_copy, " \n");
 
         for (i = 0; arguments != NULL; i++){
             argv[i] = malloc(sizeof(char) * strlen(arguments));
             strcpy(argv[i], arguments);
 
-            arguments = _strtok(NULL, " \n");
+            arguments = (NULL, " \n");
         }
         argv[i] = NULL;
 
