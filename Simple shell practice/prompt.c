@@ -9,7 +9,7 @@ int main(int ac, char **argv)
     size_t n = 0;
     ssize_t number_character;
     pid_t child_pid;
-    char **arguments;
+    char *arguments;
     int arguments_count = 0;
 
     (void)ac;
