@@ -38,7 +38,7 @@ int main(int ac, char **argv)
         string_length = _strlen(string);
         _strncpy(string_copy, string, string_length);
 
-        argv = _strtok(string, " "); 
+        argv = _strtok(string, "\n"); 
 
         /**while (arguments != NULL)
         {
