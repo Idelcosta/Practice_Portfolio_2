@@ -35,7 +35,7 @@ int main(int ac, char **argv)
             return (-1);
         }
 
-        string_length = strlen(string);
+        string_length = _strlen(string);
         _strncpy(string_copy, string, string_length);
 
         arguments = strtok(string, " \n");
@@ -52,7 +52,7 @@ int main(int ac, char **argv)
         arguments = strtok(string_copy, " \n");
 
         for (i = 0; arguments != NULL; i++){
-            argv[i] = malloc(sizeof(char) * strlen(arguments));
+            argv[i] = malloc(sizeof(char) * _strlen(arguments));
             _strncpy(argv[i], arguments, string_length);
 
             arguments = strtok(NULL, " \n");

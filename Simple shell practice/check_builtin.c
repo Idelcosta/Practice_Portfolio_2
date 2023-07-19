@@ -4,10 +4,10 @@ bool check_builtin(char **args, size_t args_count)
 {
     (void)args_count;
     
-    if (strncmp(args[0], "exit", 4) == 0)
+    if (_strcmp(args[0], "exit") == 0)
         exit_function(args);
 
-    else if ((strncmp(args[0], "env", 3) == 0) || (strncmp(args[0], "printenv", 8 == 0)))
+    else if ((_strcmp(args[0], "env") == 0) || (_strcmp(args[0], "printenv") == 0))
     {
         env_list();
         return(true);

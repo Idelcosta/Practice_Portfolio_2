@@ -10,12 +10,12 @@ char *get_location(char *command)
 
     if (path) {
         path_copy = _strdup(path);
-        command_length = strlen(command);
+        command_length = _strlen(command);
         path_token = strtok(path_copy, ":");
 
         while (path_token != NULL){
 
-            directory_length = strlen(path_token);
+            directory_length = _strlen(path_token);
             file_path = malloc(command_length + directory_length + 2);
 
             _strcpy(file_path, path_token);
