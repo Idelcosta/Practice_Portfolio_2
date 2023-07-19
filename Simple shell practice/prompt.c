@@ -5,7 +5,7 @@
 int main(int ac, char **argv)
 {
     char *string = NULL, *string_copy = NULL;
-    int i, status, string_length;
+    int status, string_length;
     size_t n = 0;
     ssize_t number_character;
     pid_t child_pid;
@@ -38,14 +38,8 @@ int main(int ac, char **argv)
         string_length = _strlen(string);
         _strncpy(string_copy, string, string_length);
 
-        i = 0;
-        while (string != NULL)
-        {
-            argv[i] = _strtok(string, " ");
-            i++;
-        }
-        argv[i] = NULL;
-        
+        argv = _strtok(string, " "); 
+
         /**while (arguments != NULL)
         {
             arguments_count++;
