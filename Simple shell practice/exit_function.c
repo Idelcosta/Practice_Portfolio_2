@@ -6,7 +6,7 @@ void exit_function(char **exit_args)
 
     if (exit_args[1])
     {
-        status = atoi(exit_args[1]);
+        status = _atoi(exit_args[1]);
     }
 
     free(exit_args);

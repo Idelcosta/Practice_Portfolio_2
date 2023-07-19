@@ -14,6 +14,7 @@
 int main(int ac, char **argv);
 char *get_location(char *command);
 void execution_command(char **argv);
+int _atoi(char *s);
 void exit_function(char **exit_args);
 bool check_builtin(char **args, size_t args_count);
 void env_list();
