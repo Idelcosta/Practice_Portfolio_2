@@ -5,8 +5,10 @@ char *get_location(char *command)
     char *path, *path_copy, *path_token, *file_path;
     int command_length, directory_length;
     struct stat buffer;
+    extern char **environ;
 
-    path = _getenv("PATH");
+
+    path = _getenv(environ, "PATH");
 
     if (path) {
         path_copy = _strdup(path);
