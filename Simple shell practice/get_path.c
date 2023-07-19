@@ -21,7 +21,7 @@ char *get_location(char *command)
             _strncpy(file_path, path_token, directory_length);
             _strncat(file_path, "/", 1);
             _strncat(file_path, command, command_length);
-            _strncat(file_path, "\0", 1);
+            _strncat(file_path, "\0", 2);
 
             if (stat(file_path, &buffer) == 0){
                 free(path_copy);
