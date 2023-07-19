@@ -101,14 +101,12 @@ char **_strtok(char *line, char *delim)
 
 
 
-
-
-char *get_token(char *line, char *delim)
+char *get_token(char *line_string, char *delimeters)
 {
     char *pointer;
     int num, words, s, lette, p;
 
-    words = count_tokens(line, delim);
+    words = count_tokens(line_string, delimeters);
     if (words == 0)
         return NULL;
 
@@ -118,10 +116,10 @@ char *get_token(char *line, char *delim)
 
     for (s = 0; s < words; s++)
 	{
-		while (line[num] == *delim)
+		while (line_string[num] == *delimeters)
 			num++;
 
-		lette = token_len(line + num, delim);
+		lette = token_len(line_string + num, delimeters);
 
 		pointer[s] = malloc(sizeof(char) * (lette + 1));
 		if (!pointer[s])
@@ -133,5 +131,4 @@ char *get_token(char *line, char *delim)
 		}
     
     return pointer;
-    
 }
