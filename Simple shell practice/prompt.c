@@ -38,7 +38,7 @@ int main(int ac, char **argv)
         string_length = _strlen(string);
         _strncpy(string_copy, string, string_length);
 
-        argv[0] = _strtok(string, " \n"); 
+        argv = _strtok(string, " \n"); 
 
         /**while (arguments != NULL)
         {
@@ -61,7 +61,7 @@ int main(int ac, char **argv)
 
         if (check_builtin(argv, number_character))
             continue;
-
+        */
 
         /**i = 0;
 
