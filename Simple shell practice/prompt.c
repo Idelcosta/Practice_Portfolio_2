@@ -4,7 +4,7 @@
 
 int main(int ac, char **argv)
 {
-    char *string = NULL;
+    char *string = NULL, *string_copy = NULL;
     int status;
     size_t n = 0;
     ssize_t number_character;
