@@ -57,11 +57,11 @@ int main(int ac, char **argv)
 
             arguments = strtok(NULL, " \n");
         }
-        argv[i] = NULL;
+        argv[i] = NULL; */
 
         if (check_builtin(argv, number_character))
             continue;
-        */
+        
 
         /**i = 0;
 
