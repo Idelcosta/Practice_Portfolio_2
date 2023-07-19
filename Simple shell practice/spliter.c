@@ -1,6 +1,7 @@
 #include "shell_library.h"
 
-char* my_strtok(char* str, char delim) {
+char* my_strtok(char* str, char delim) 
+{
     static char* nextTokenStart = NULL;
     char* tokenStart = (str != NULL) ? str : nextTokenStart;
     char* tokenEnd;

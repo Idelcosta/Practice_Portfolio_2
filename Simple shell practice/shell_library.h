@@ -29,6 +29,7 @@ char *_getenv(char **environ, char *dirname);
 int token_len(char *str, char *delim);
 int count_tokens(char *str, char *delim);
 char **_strtok(char *line, char *delim);
+char* my_strtok(char* str, char delim);
 
 
 
