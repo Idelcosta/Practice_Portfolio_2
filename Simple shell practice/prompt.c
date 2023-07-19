@@ -5,12 +5,12 @@
 int main(int ac, char **argv)
 {
     char *string = NULL, *string_copy = NULL;
-    int status;
+    int i, status;
     size_t n = 0;
     ssize_t number_character;
     pid_t child_pid;
-    /**char **arguments;
-    int arguments_count = 0;*/
+    char *arguments;
+    int arguments_count = 0;
 
     (void)ac;
 
@@ -37,29 +37,29 @@ int main(int ac, char **argv)
 
         strcpy(string_copy, string);
 
-        argv = _strtok(string, " ");
+        arguments = strtok(string, " \n");
 
-        /** while (arguments != NULL)
+        while (arguments != NULL)
         {
             arguments_count++;
-            arguments = _strtok(NULL, " \n");
+            arguments = strtok(NULL, " \n");
         }
         arguments_count++;
 
         argv = malloc(sizeof(char *) * arguments_count);
 
-        arguments = _strtok(string_copy, " \n");
+        arguments = strtok(string_copy, " \n");
 
         for (i = 0; arguments != NULL; i++){
             argv[i] = malloc(sizeof(char) * strlen(arguments));
             strcpy(argv[i], arguments);
 
-            arguments = _strtok(NULL, " \n");
+            arguments = strtok(NULL, " \n");
         }
         argv[i] = NULL;
 
         if (check_builtin(argv, number_character))
-            continue; */
+            continue;
 
 
         /**i = 0;
@@ -74,11 +74,11 @@ int main(int ac, char **argv)
         }
 
         j = 0;
-        argv[j] = _strtok(string, " \n");
+        argv[j] = strtok(string, " \n");
         while (argv[j])
         {
             j++;
-            argv[j] = _strtok(NULL, " \n");
+            argv[j] = strtok(NULL, " \n");
         }*/
 
 
