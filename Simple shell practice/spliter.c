@@ -12,11 +12,11 @@ char* my_strtok(char* str, char *delim)
     
     tokenEnd = tokenStart;
     
-    while (*tokenEnd != delim && *tokenEnd != '\0') {
+    while (*tokenEnd != *delim && *tokenEnd != '\0') {
         tokenEnd++;
     }
     
-    if (*tokenEnd == delim) {
+    if (*tokenEnd == *delim) {
         *tokenEnd = '\0';  
         nextTokenStart = tokenEnd + 1;  
     } else {
