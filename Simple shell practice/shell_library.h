@@ -24,6 +24,9 @@ char *_strcpy(char *dest, char *src);
 char *_strdup(const char *str);
 int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
+char *length(char *str);
+char *_getenv(char **environ, char *dirname);
+
 
 
 
