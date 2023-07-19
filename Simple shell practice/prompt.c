@@ -5,7 +5,7 @@
 int main(int ac, char **argv)
 {
     char *string = NULL, *string_copy = NULL;
-    int i, status;
+    int i, status, string_length;
     size_t n = 0;
     ssize_t number_character;
     pid_t child_pid;
@@ -35,7 +35,8 @@ int main(int ac, char **argv)
             return (-1);
         }
 
-        strcpy(string_copy, string);
+        string_length = strlen(string);
+        _strncpy(string_copy, string, string_length);
 
         arguments = strtok(string, " \n");
 
@@ -52,7 +53,7 @@ int main(int ac, char **argv)
 
         for (i = 0; arguments != NULL; i++){
             argv[i] = malloc(sizeof(char) * strlen(arguments));
-            strcpy(argv[i], arguments);
+            _strncpy(argv[i], arguments, string_length);
 
             arguments = strtok(NULL, " \n");
         }

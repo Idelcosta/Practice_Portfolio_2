@@ -18,10 +18,10 @@ char *get_location(char *command)
             directory_length = strlen(path_token);
             file_path = malloc(command_length + directory_length + 2);
 
-            strcpy(file_path, path_token);
-            strcat(file_path, "/");
-            strcat(file_path, command);
-            strcat(file_path, "\0");
+            _strncpy(file_path, path_token, directory_length);
+            _strncat(file_path, "/", 1);
+            _strncat(file_path, command, command_length);
+            _strncat(file_path, "\0", 1);
 
             if (stat(file_path, &buffer) == 0){
                 free(path_copy);
