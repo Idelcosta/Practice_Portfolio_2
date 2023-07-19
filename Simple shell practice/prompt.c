@@ -42,19 +42,19 @@ int main(int ac, char **argv)
         while (arguments != NULL)
         {
             arguments_count++;
-            arguments = (NULL, " \n");
+            arguments = (char *)_strtok(NULL, " \n");
         }
         arguments_count++;
 
         argv = malloc(sizeof(char *) * arguments_count);
 
-        arguments = (string_copy, " \n");
+        arguments = (char *)_strtok(string_copy, " \n");
 
         for (i = 0; arguments != NULL; i++){
             argv[i] = malloc(sizeof(char) * strlen(arguments));
             strcpy(argv[i], arguments);
 
-            arguments = (NULL, " \n");
+            arguments = (char *)_strtok(NULL, " \n");
         }
         argv[i] = NULL;
 
