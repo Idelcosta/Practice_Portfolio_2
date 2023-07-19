@@ -26,6 +26,10 @@ int _strcmp(char *s1, char *s2);
 int _strlen(char *s);
 char *length(char *str);
 char *_getenv(char **environ, char *dirname);
+int token_len(char *str, char *delim);
+int count_tokens(char *str, char *delim);
+char **_strtok(char *line, char *delim);
+
 
 
 
