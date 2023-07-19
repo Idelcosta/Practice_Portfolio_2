@@ -9,7 +9,7 @@ char *get_location(char *command)
     path = getenv("PATH");
 
     if (path) {
-        path_copy = strdup(path);
+        path_copy = _strdup(path);
         command_length = strlen(command);
         path_token = strtok(path_copy, ":");
 
@@ -18,7 +18,7 @@ char *get_location(char *command)
             directory_length = strlen(path_token);
             file_path = malloc(command_length + directory_length + 2);
 
-            _strncpy(file_path, path_token, directory_length);
+            _strcpy(file_path, path_token);
             _strcat(file_path, "/");
             _strcat(file_path, command);
             _strcat(file_path, "\0");

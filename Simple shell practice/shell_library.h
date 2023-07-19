@@ -20,6 +20,8 @@ bool check_builtin(char **args, size_t args_count);
 void env_list();
 char *_strncpy(char *dest, char *src, int n);
 char *_strcat(char *dest, char *src);
+char *_strcpy(char *dest, char *src);
+char *_strdup(const char *str);
 
 
 #endif 
