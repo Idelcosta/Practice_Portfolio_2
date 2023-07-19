@@ -4,13 +4,13 @@
 
 int main(int ac, char **argv)
 {
-    char *string = NULL, *string_copy = NULL;
-    int i, status;
+    char *string = NULL;
+    int status;
     size_t n = 0;
     ssize_t number_character;
     pid_t child_pid;
-    char *arguments;
-    int arguments_count = 0;
+    /**char **arguments;
+    int arguments_count = 0;*/
 
     (void)ac;
 
@@ -37,29 +37,29 @@ int main(int ac, char **argv)
 
         strcpy(string_copy, string);
 
-        arguments = (char *)_strtok(string, " \n");
+        argv = _strtok(string, " \n");
 
-        while (arguments != NULL)
+        /** while (arguments != NULL)
         {
             arguments_count++;
-            arguments = (char *)_strtok(NULL, " \n");
+            arguments = _strtok(NULL, " \n");
         }
         arguments_count++;
 
         argv = malloc(sizeof(char *) * arguments_count);
 
-        arguments = (char *)_strtok(string_copy, " \n");
+        arguments = _strtok(string_copy, " \n");
 
         for (i = 0; arguments != NULL; i++){
             argv[i] = malloc(sizeof(char) * strlen(arguments));
             strcpy(argv[i], arguments);
 
-            arguments = (char *)_strtok(NULL, " \n");
+            arguments = _strtok(NULL, " \n");
         }
         argv[i] = NULL;
 
         if (check_builtin(argv, number_character))
-            continue;
+            continue; */
 
 
         /**i = 0;
