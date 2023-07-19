@@ -2,7 +2,7 @@
 
 char *get_location(char *command)
 {
-    char *path, *path_copy, **path_token, *file_path;
+    char *path, *path_copy, *path_token, *file_path;
     int command_length, directory_length;
     struct stat buffer;
 
@@ -11,7 +11,7 @@ char *get_location(char *command)
     if (path) {
         path_copy = strdup(path);
         command_length = strlen(command);
-        path_token = _strtok(path_copy, ":");
+        path_token = get_token(path_copy, ":");
 
         while (path_token != NULL){
 

@@ -21,7 +21,7 @@ void env_list();
 int token_len(char *str, char *delim);
 int count_tokens(char *str, char *delim);
 char **_strtok(char *line, char *delim);
-
+char *get_token(char *line, char *delim)
 
 
 #endif 

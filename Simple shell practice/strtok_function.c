@@ -98,3 +98,24 @@ char **_strtok(char *line, char *delim)
 
 	return (ptr);
 }
+
+
+
+
+
+char *get_token(char *line, char *delim)
+{
+    char *pointer;
+    int words;
+
+    words = count_tokens(line, delim);
+    if (words == 0)
+        return NULL;
+
+    pointer = malloc(sizeof(char) * (words + 2));
+    if (!pointer)
+        return NULL;
+    
+    return pointer;
+    
+}
