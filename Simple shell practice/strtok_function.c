@@ -1,5 +1,4 @@
-#include "shell_library.h"
-
+#include "shell.h"
 
 /**
  * token_len - Locates the delimiter index marking the end
@@ -57,9 +56,9 @@ int count_tokens(char *str, char *delim)
  *
  * Return: A pointer to an array containing the tokenized words.
  */
-char *_strtok(char *line, char *delim)
+char **_strtok(char *line, char *delim)
 {
-	char *ptr;
+	char **ptr;
 	int index = 0, tokens, t, letters, l;
 
 	tokens = count_tokens(line, delim);
@@ -77,7 +76,7 @@ char *_strtok(char *line, char *delim)
 
 		letters = token_len(line + index, delim);
 
-		ptr[t] = malloc(sizeof(char) * (letters + 1));
+		ptr[t] = (char *)malloc(sizeof(char) * (letters + 1));
 		if (!ptr[t])
 		{
 			for (index -= 1; index >= 0; index--)
