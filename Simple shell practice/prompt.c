@@ -1,16 +1,15 @@
 #include "shell_library.h"
-#include <sys/wait.h>
 
 
 int main(int ac, char **argv)
 {
     char *string = NULL, *string_copy = NULL;
-    int status, string_length;
+    int i, status, string_length;
     size_t n = 0;
     ssize_t number_character;
     pid_t child_pid;
-    /**char *arguments;
-    int arguments_count = 0;*/
+    char *arguments;
+    int arguments_count = 0;
 
     (void)ac;
 
@@ -38,9 +37,9 @@ int main(int ac, char **argv)
         string_length = _strlen(string);
         _strncpy(string_copy, string, string_length);
 
-        argv = _strtok(string, "\n"); 
+        arguments = strtok(string, " \n");
 
-        /**while (arguments != NULL)
+        while (arguments != NULL)
         {
             arguments_count++;
             arguments = strtok(NULL, " \n");
@@ -57,11 +56,11 @@ int main(int ac, char **argv)
 
             arguments = strtok(NULL, " \n");
         }
-        argv[i] = NULL; */
+        argv[i] = NULL;
 
         if (check_builtin(argv, number_character))
             continue;
-        
+
 
         /**i = 0;
 
@@ -102,5 +101,3 @@ int main(int ac, char **argv)
 
     return(0);
 }
-
- 
