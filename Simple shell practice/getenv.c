@@ -32,7 +32,7 @@ char *length(char *s)
 
 	for (j = 0; s[j] != '='; j++)
 		;
-	return (str + j + 1);
+	return (s + j + 1);
 }
 
 

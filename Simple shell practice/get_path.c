@@ -20,7 +20,7 @@ char *get_location(char *command)
     if (path) {
         path_copy = _strdup(path);
         command_length = _strlen(command);
-        path_token = my_strtok(path_copy, ":");
+        path_token = strtok(path_copy, ":");
 
         while (path_token != NULL){
 
