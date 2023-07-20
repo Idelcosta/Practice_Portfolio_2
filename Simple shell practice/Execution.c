@@ -1,5 +1,9 @@
 #include "shell_library.h"
 
+/**
+*execution_command - execute the command 
+*@argv: command to be executed
+*/
 void execution_command(char **argv)
 {
     char *command = NULL, *actual_command = NULL;

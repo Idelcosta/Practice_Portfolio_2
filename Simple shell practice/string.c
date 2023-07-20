@@ -2,9 +2,10 @@
 
 /**
  **_strncpy - copies a string
- *@dest: the destination string to be copied to
- *@src: the source string
+ *@dest: the destination string 
+ *@src:  source string
  *@n: the amount of characters to be copied
+ *
  *Return: the concatenated string
  */
 char *_strncpy(char *dest, char *src, int n)
@@ -32,10 +33,10 @@ char *_strncpy(char *dest, char *src, int n)
 
 /**
  * _strcat - concatenates two strings
- * @dest: the destination buffer
- * @src: the source buffer
+ * @dest: the destination
+ * @src: the source 
  *
- * Return: pointer to destination buffer
+ * Return: pointer to destination
  */
 char *_strcat(char *dest, char *src)
 {
@@ -50,32 +51,32 @@ char *_strcat(char *dest, char *src)
 }
 
 /**
- * _strcmp - performs lexicogarphic comparison of two strangs.
+ * _strcmp - compares two strings
  * @s1: the first strang
  * @s2: the second strang
  *
  * Return: negative if s1 < s2, positive if s1 > s2, zero if s1 == s2
  */
-int _strcmp(char *s1, char *s2)
+int _strcmp(char *st1, char *st2)
 {
-	while (*s1 && *s2)
+	while (*st1 && *st2)
 	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
+		if (*st1 != *st2)
+			return (*st1 - *st2);
+		st1++;
+		st2++;
 	}
-	if (*s1 == *s2)
+	if (*st1 == *st2)
 		return (0);
 	else
-		return (*s1 < *s2 ? -1 : 1);
+		return (*st1 < *st2 ? -1 : 1);
 }
 
 /**
- * _strlen - returns the length of a string
- * @s: the string whose length to check
+ * _strlen - calculates the length of a string
+ * @s: the string to be calculated
  *
- * Return: integer length of string
+ * Return: length of string
  */
 int _strlen(char *s)
 {

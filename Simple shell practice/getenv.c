@@ -1,37 +1,38 @@
 #include "shell_library.h"
 
 /**
- * compare - function that compares two strings
- * @varname: is a char
- * @dirname: is a char
+ * compare - compares two strings
+ * @varname: first character
+ * @dirname: second character
+
  * Return: 1
  */
 
 int compare(char *varname, char *dirname)
 {
-	int i;
+	int r;
 
-	for (i = 0; dirname[i] != '\0'; i++)
+	for (r = 0; dirname[r] != '\0'; r++)
 	{
-		if (dirname[i] != varname[i])
+		if (dirname[r] != varname[r])
 			return (0);
 	}
 	return (1);
 }
 
 /**
- * length - function that checks the = character
- * @str: is a char
+ * length - checks the equal sign
+ * @str: character
  * Return: str
  */
 
-char *length(char *str)
+char *length(char *s)
 {
-	int i;
+	int j;
 
-	for (i = 0; str[i] != '='; i++)
+	for (j = 0; s[j] != '='; j++)
 		;
-	return (str + i + 1);
+	return (str + j + 1);
 }
 
 
@@ -44,19 +45,19 @@ char *length(char *str)
 
 char *_getenv(char **environ, char *dirname)
 {
-	int k, j;
+	int u, v;
 	char *varname, *final;
 
-	for (j = 0; environ[j]; j++)
+	for (v = 0; environ[v]; v++)
 	{
 		varname = malloc(1024);
 
-		for (k = 0; environ[j][k] != '='; k++)
-			varname[k] = environ[j][k];
+		for (u = 0; environ[v][u] != '='; u++)
+			varname[u] = environ[v][u];
 
 		if (compare(varname, dirname))
 		{
-			final = length(environ[j]);
+			final = length(environ[v]);
 			free(varname);
 			return (final);
 

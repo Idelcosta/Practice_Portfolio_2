@@ -1,5 +1,12 @@
 #include "shell_library.h"
 
+/**
+*get_location: find a command in PATH
+*@command: the command to be entered
+*
+*Return: If an error occurs or the command is not located - NULL.
+*         Otherwise - gives the full pathname of the command.
+*/
 char *get_location(char *command)
 {
     char *path, *path_copy, *path_token, *file_path;
@@ -19,7 +26,6 @@ char *get_location(char *command)
 
             directory_length = _strlen(path_token);
             file_path = malloc(command_length + directory_length + 2);
-
             _strcpy(file_path, path_token);
             _strcat(file_path, "/");
             _strcat(file_path, command);

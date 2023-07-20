@@ -1,6 +1,12 @@
 #include "shell_library.h"
 
-
+/**
+*main - input the command and create child proccess to execute it
+*@ac: count the strings entered
+*@argv: number of strings read in
+*
+*Return: 0
+*/
 int main(int ac, char **argv)
 {
     char *string = NULL, *string_copy = NULL;
@@ -15,10 +21,11 @@ int main(int ac, char **argv)
 
     while (1)
     {
-	if (isatty(STDIN_FILENO))
-	{
-		printf ("cisfun$ ");
-	}
+
+        if (isatty(STDIN_FILENO))
+        {
+            printf ("cisfun$ ");
+        }
 
         number_character = getline(&string, &n, stdin);
         if (number_character == -1)
@@ -36,9 +43,7 @@ int main(int ac, char **argv)
 
         string_length = _strlen(string);
         _strncpy(string_copy, string, string_length);
-
         arguments = strtok(string, " \n");
-
         while (arguments != NULL)
         {
             arguments_count++;
@@ -47,7 +52,6 @@ int main(int ac, char **argv)
         arguments_count++;
 
         argv = malloc(sizeof(char *) * arguments_count);
-
         arguments = strtok(string_copy, " \n");
 
         for (i = 0; arguments != NULL; i++){
@@ -60,27 +64,6 @@ int main(int ac, char **argv)
 
         if (check_builtin(argv, number_character))
             continue;
-
-
-        /**i = 0;
-
-        while (string[i])
-        {
-            if (string[i] == '\n')
-            {
-                string[i] = 0 ;
-            }
-            i++;    
-        }
-
-        j = 0;
-        argv[j] = strtok(string, " \n");
-        while (argv[j])
-        {
-            j++;
-            argv[j] = strtok(NULL, " \n");
-        }*/
-
 
         child_pid = fork();
         if (child_pid == -1)
