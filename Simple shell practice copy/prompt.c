@@ -7,13 +7,11 @@ void display_prompt(char **av, char **env)
 {
     char *command = NULL;
     int i, status;
-    size_t n = 0;
-    ssize_t number_character;
+    size_t n = 0, number_character;
     char *args[MAX_COMMAND];
     pid_t child_pid;
 
-    char *path_copy;
-    char *directory;
+    char *path_copy, *directory;
     char executable[MAX_COMMAND_LENGTH];
     char *path = getenv("PATH");
 
@@ -45,14 +43,14 @@ void display_prompt(char **av, char **env)
 
 
         path_copy = strdup(path);
-        directory = strtok(path_copy, ";");
+        directory = strtok(path_copy, " \n");
         while (directory != NULL)
         {
             strcpy(executable, directory);
             strcat(executable, "/");
             strcat(executable, command);
 
-            directory = strtok(NULL, ":");
+            directory = strtok(NULL, " \n");
         }
 
         args[0] = command;

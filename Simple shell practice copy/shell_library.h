@@ -9,5 +9,6 @@
 
 
 void display_prompt(char **av, char **env);
+char *get_location(char *command);
 
 #endif 
