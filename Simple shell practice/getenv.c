@@ -4,7 +4,7 @@
  * compare - compares two strings
  * @varname: first character
  * @dirname: second character
-
+ *
  * Return: 1
  */
 
@@ -35,14 +35,13 @@ char *length(char *s)
 	return (s + j + 1);
 }
 
-
 /**
  * _getenv - function that gets the path in the environ
  * @environ: global variable
  * @dirname: is a char
  * Return: final or null
  */
-
+ 
 char *_getenv(char **environ, char *dirname)
 {
 	int u, v;
