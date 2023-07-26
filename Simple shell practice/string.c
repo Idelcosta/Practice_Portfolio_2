@@ -2,7 +2,7 @@
 
 /**
  **_strncpy - copies a string
- *@dest: the destination string 
+ *@dest: the destination string
  *@src:  source string
  *@n: the amount of characters to be copied
  *
@@ -34,7 +34,7 @@ char *_strncpy(char *dest, char *src, int n)
 /**
  * _strcat - concatenates two strings
  * @dest: the destination
- * @src: the source 
+ * @src: the source
  *
  * Return: pointer to destination
  */
