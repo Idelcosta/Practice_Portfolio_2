@@ -15,7 +15,7 @@ int _atoi(char *str)
 	for (i = 0;  str[i] != '\0' && flag != 2; i++)
 	{
 		if (str[i] == '-')
-			sign *= -1; 
+			sign *= -1;
 
 		if (str[i] >= '0' && str[i] <= '9')
 		{
