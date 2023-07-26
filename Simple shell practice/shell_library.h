@@ -18,6 +18,7 @@ int _atoi(char *s);
 void exit_function(char **exit_args);
 bool check_builtin(char **args, size_t args_count);
 void env_list();
+void pid_execution();
 char *_strncpy(char *dest, char *src, int n);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
