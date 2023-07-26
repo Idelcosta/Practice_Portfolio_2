@@ -24,7 +24,7 @@ char *_strcpy(char *destination, char *src)
 
 /**
  * _strdup - it duplicates a string
- * @str: string to be duplicated 
+ * @str: string to be duplicated
  *
  * Return: pointer to the duplicated string
  */
