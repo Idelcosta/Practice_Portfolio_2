@@ -41,7 +41,7 @@ char *length(char *s)
  * @dirname: is a char
  * Return: final or null
  */
- 
+
 char *_getenv(char **environ, char *dirname)
 {
 	int u, v;
