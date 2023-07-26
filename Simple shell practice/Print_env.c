@@ -6,7 +6,7 @@
 char **env;
 extern char **environ;
 
-void env_list() 
+void env_list(void) 
 {
     env = environ;
 
